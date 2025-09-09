@@ -1,10 +1,12 @@
+// app/_layout.tsx
 import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
 import { useFonts } from 'expo-font';
 import { Stack } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
 import 'react-native-reanimated';
-
 import { useColorScheme } from '@/hooks/useColorScheme';
+import { useState, useEffect } from 'react';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export default function RootLayout() {
   const colorScheme = useColorScheme();
@@ -12,18 +14,36 @@ export default function RootLayout() {
     SpaceMono: require('../assets/fonts/SpaceMono-Regular.ttf'),
   });
 
-  if (!loaded) {
-    // Async font loading only occurs in development.
-    return null;
-  }
+  const [isLoggedIn, setIsLoggedIn] = useState<null | boolean>(null);
+
+  // Simulate checking login state from storage
+  useEffect(() => {
+    const checkLogin = async () => {
+      const token = await AsyncStorage.getItem('authToken');
+      setIsLoggedIn(!!token);
+    };
+    checkLogin();
+  }, []);
+
+  if (!loaded || isLoggedIn === null) return null;
 
   return (
     <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-      <Stack>
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+      <Stack screenOptions={{ headerShown: false }}>
+        {!isLoggedIn ? (
+          // Authentication flow
+          <>
+            <Stack.Screen name="login" options={{ gestureEnabled: false }} />
+            <Stack.Screen name="signup" />
+          </>
+        ) : (
+          // Main app flow
+          <Stack.Screen name="(tabs)" options={{ gestureEnabled: false }} />
+        )}
+        {/* Fallback */}
         <Stack.Screen name="+not-found" />
       </Stack>
-      <StatusBar style="auto" />
+      <StatusBar style="light" backgroundColor="#121212" />
     </ThemeProvider>
   );
 }
