@@ -18,7 +18,7 @@
 ![Playlists](./assets/screenshots/Playlists.png)
 
 ### 1
-![1](./assets/screenshots/image.png)
+![1](./assets/screenshots/name)
 
 ### 2
 ![2](./assets/screenshots/miffy.png)
