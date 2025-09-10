@@ -2,12 +2,6 @@
 
 ## Screenshots
 
-### 1
-![1](./assets/screenshots/1.png)
-
-### 2
-![2](./assets/screenshots/2.png)
-
 ### Log In 
 ![Log In](./assets/screenshots/login.png)
 
@@ -22,3 +16,9 @@
 
 ### Playlists
 ![Playlists](./assets/screenshots/Playlists.png)
+
+### One
+![1](./assets/screenshots/1.png)
+
+### Two
+![2](./assets/screenshots/2.png)
