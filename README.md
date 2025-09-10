@@ -6,7 +6,7 @@
 ![1](./assets/screenshots/1.png)
 
 ### 2
-![1](./assets/screenshots/2.png)
+![2](./assets/screenshots/2.png)
 
 ### Log In 
 ![Log In](./assets/screenshots/login.png)
