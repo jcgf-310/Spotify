@@ -21,4 +21,4 @@
 ![1](./assets/screenshots/image.png)
 
 ### 2
-![2](./assets/screenshots/image (1).png)
+![2](./assets/screenshots/miffy.png)
