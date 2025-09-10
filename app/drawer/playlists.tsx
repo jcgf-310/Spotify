@@ -1,4 +1,5 @@
 import React from "react";
+import { router } from "expo-router";
 import { View, Text, FlatList, Image, StyleSheet, TouchableOpacity } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 
@@ -11,17 +12,17 @@ const playlists = [
   {
     id: "2",
     title: "Red",
-    image: require("@/assets/a/p1.png"),
+    image: require("@/assets/a/p2.png"),
   },
   {
     id: "3",
     title: "DQ",
-    image: require("@/assets/a/p1.png"),
+    image: require("@/assets/a/p3.png"),
   },
   {
     id: "4",
     title: "crazy",
-    image: require("@/assets/a/p1.png"),
+    image: require("@/assets/a/p4.png"),
   },
 ];
 
@@ -35,21 +36,18 @@ export default function PlaylistsScreen() {
       </View>
 
       {/* Playlist List */}
-      <FlatList
-        data={playlists}
-        keyExtractor={(item) => item.id}
-        renderItem={({ item }) => (
-          <TouchableOpacity style={styles.playlistItem}>
-            <Image
-                    source={require("@/assets/images/SPOTIFY/SpotifyLogo.png")}
-                    style={styles.profilePic}
-                  />
-            <Text style={styles.playlistTitle}>{item.title}</Text>
-          </TouchableOpacity>
-        )}
-      />
-    </View>
-  );
+            <FlatList
+              data={playlists}
+              keyExtractor={(item) => item.id}
+              renderItem={({ item }) => (
+                <TouchableOpacity style={styles.playlistItem}>
+                  <Image source={item.image} style={styles.coverImage} />
+                  <Text style={styles.playlistTitle}>{item.title}</Text>
+                </TouchableOpacity>
+              )}
+            />
+          </View>
+        );
 }
 
 const styles = StyleSheet.create({
