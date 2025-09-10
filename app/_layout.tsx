@@ -1,4 +1,3 @@
-// app/_layout.tsx
 import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
 import { useFonts } from 'expo-font';
 import { Stack } from 'expo-router';
@@ -16,7 +15,6 @@ export default function RootLayout() {
 
   const [isLoggedIn, setIsLoggedIn] = useState<null | boolean>(null);
 
-  // Simulate checking login state from storage
   useEffect(() => {
     const checkLogin = async () => {
       const token = await AsyncStorage.getItem('authToken');
@@ -31,14 +29,12 @@ export default function RootLayout() {
     <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
       <Stack screenOptions={{ headerShown: false }}>
         {!isLoggedIn ? (
-          // Authentication flow
           <>
             <Stack.Screen name="login" options={{ gestureEnabled: false }} />
             <Stack.Screen name="signup" />
           </>
         ) : (
-          // Main app flow
-          <Stack.Screen name="(tabs)" options={{ gestureEnabled: false }} />
+          <Stack.Screen name="drawer" options={{ gestureEnabled: false }} />
         )}
         {/* Fallback */}
         <Stack.Screen name="+not-found" />

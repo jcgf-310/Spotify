@@ -26,7 +26,7 @@ export default function LoginScreen() {
       Alert.alert("Error", "Please fill in all fields");
       return;
     }
-    router.replace("/(tabs)");
+    router.replace("/drawer");
   };
 
   return (

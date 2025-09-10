@@ -1,0 +1,89 @@
+import React from "react";
+import { View, Text, FlatList, Image, StyleSheet, TouchableOpacity } from "react-native";
+import { Ionicons } from "@expo/vector-icons";
+
+const playlists = [
+  {
+    id: "1",
+    title: "Lezgaur",
+    image: require("@/assets/images/SPOTIFY/p1.jpg"),
+  },
+  {
+    id: "2",
+    title: "Red",
+    image: require("@/assets/images/SPOTIFY/p2.jpg"),
+  },
+  {
+    id: "3",
+    title: "DQ",
+    image: require("@/assets/images/SPOTIFY/p3.jpg"),
+  },
+  {
+    id: "4",
+    title: "crazy",
+    image: require("@/assets/images/SPOTIFY/p4.jpg"),
+  },
+];
+
+export default function PlaylistsScreen() {
+  return (
+    <View style={styles.container}>
+      {/* Header */}
+      <View style={styles.header}>
+        <Ionicons name="musical-notes" size={28} color="#1DB954" />
+        <Text style={styles.headerText}>Playlists</Text>
+      </View>
+
+      {/* Playlist List */}
+      <FlatList
+        data={playlists}
+        keyExtractor={(item) => item.id}
+        renderItem={({ item }) => (
+          <TouchableOpacity style={styles.playlistItem}>
+            <Image
+                    source={require("@/assets/images/SPOTIFY/SpotifyLogo.png")}
+                    style={styles.profilePic}
+                  />
+            <Text style={styles.playlistTitle}>{item.title}</Text>
+          </TouchableOpacity>
+        )}
+      />
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: "#121212",
+    paddingHorizontal: 16,
+    paddingTop: 40,
+  },
+  header: {
+    flexDirection: "row",
+    alignItems: "center",
+    marginBottom: 20,
+  },
+  headerText: {
+    color: "#fff",
+    fontSize: 24,
+    fontWeight: "bold",
+    marginLeft: 10,
+  },
+  playlistItem: {
+    flexDirection: "row",
+    alignItems: "center",
+    marginBottom: 16,
+  },
+  coverImage: {
+    width: 50,
+    height: 50,
+    borderRadius: 8,
+    marginRight: 12,
+  },
+  playlistTitle: {
+    color: "#fff",
+    fontSize: 18,
+    fontWeight: "600",
+  },
+});
