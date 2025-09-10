@@ -13,7 +13,7 @@ export default function ProfileScreen() {
 
       {/* Profile Picture */}
       <Image
-        source={require("@/assets/images/SPOTIFY/SpotifyLogo.png")}
+        source={require("@/assets/a/Max.png")}
         style={styles.profilePic}
       />
 

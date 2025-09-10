@@ -6,22 +6,22 @@ const playlists = [
   {
     id: "1",
     title: "Lezgaur",
-    image: require("@/assets/a/p1.jpg"),
+    image: require("@/assets/a/p1.png"),
   },
   {
     id: "2",
     title: "Red",
-    image: require("@/assets/a/p1.jpg"),
+    image: require("@/assets/a/p1.png"),
   },
   {
     id: "3",
     title: "DQ",
-    image: require("@/assets/a/p1.jpg"),
+    image: require("@/assets/a/p1.png"),
   },
   {
     id: "4",
     title: "crazy",
-    image: require("@/assets/a/p1.jpg"),
+    image: require("@/assets/a/p1.png"),
   },
 ];
 
